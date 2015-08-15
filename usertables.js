@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	            editedProjectUsers.push(cur_user);
 	            var editeUsersHTML = document.getElementById('editedusersforproject').innerHTML;
-	            editeUsersHTML += "<div id='" + cur_user.id + "selected' class=\"selecteduser\">" + cur_user.name + "<span onclick=\"RemoveSelectedUser(this)\">X</span></div>";
+	            editeUsersHTML += "<div id='" + cur_user.id + "selected' class=\"selecteduser\">" + cur_user.name + "<span onclick=\"RemoveSelectedUser(this)\">&#10005</span></div>";
 	            document.getElementById('editedusersforproject').innerHTML = editeUsersHTML;
 	        }
 	    } else {
