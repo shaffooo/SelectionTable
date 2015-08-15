@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="userstable.css" type="text/css">
+        <script src="usertables.js"></script>
+    </head>
+    <body>
+        
+        <div class="users-container">
+            <div class="users-list-container">
+                <input type="text" class="users-filter" placeholder="Search by name" onkeyup="FilterUsers(this)">
+                <div class="users-header">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="all" value="change-all-users" onclick="SelectAll(this)">
+                            </td>
+                            <td>User Name</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="edit-users" class="users-list">
+
+                </div>
+            </div>
+            <div id="selected-users-list-container">
+                <div class="selectedusersheader">Selected Users</div>
+                <div id="editedusersforproject" class="selectedusers">
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

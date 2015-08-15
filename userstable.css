@@ -1,0 +1,190 @@
+ .users-container {
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        float: left;
+        overflow: hidden;
+        border: 1px solid #99CCFF;
+        font-family: Helvetica, Montserrat,Arial;
+     font-size: 0.8em;
+    }
+
+.users-list-container{
+    width: auto;
+    height: auto;
+    float: left;
+}
+.users-filter {
+    width: 100%;
+    height: 20px;
+    border: none;
+    padding-left: 5px;
+}
+
+.users-header {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.users-header table {
+    width: 200px;
+    max-height: 20px;
+    overflow: hidden;
+    height: auto;
+    border-collapse: collapse;
+}
+
+.users-header table td {
+    padding: 3px;
+    background-color: #99CCFF;
+    color: white;
+    vertical-align: middle;
+}
+
+.users-header table td:nth-child(1) {
+    text-align: center;
+    border-top: 1px solid #2E8AE6;
+    border-right: 1px solid #2E8AE6;
+    border-bottom: 1px solid #2E8AE6;
+    width: 35px;
+}
+
+.users-header table td:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+    border-top: 1px solid #2E8AE6;
+    border-bottom: 1px solid #2E8AE6;
+    border-right: 1px solid #99CCFF;
+}
+
+.users-list {
+    width: auto;
+    height: 250px;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.users-list table {
+    width: 200px;
+    height: auto;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+.users-list table td {
+    padding: 3px;
+    border-bottom: 1px solid #99CCFF;
+    vertical-align: middle;
+}
+
+.users-list table td:nth-child(1) {
+    text-align: center;
+    width: 35px;
+}
+
+.users-list table td:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+    /*border-right: 1px solid #99CCFF;*/
+}
+
+#selected-users-list-container{
+    width: 200px;
+    height: 300px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    overflow: hidden;
+    border-left: 1px solid #99CCFF;
+}
+
+.selectedusersheader{
+    width: 100%;
+    height: 20px;
+    margin: 0;
+    padding: 2px 2px 2px 5px;
+    background-color: #99CCFF;
+    color:white;
+    vertical-align: middle;
+}
+
+.selectedusers {
+    width: 100%;
+    height: auto;
+    max-height: 265px;
+    margin: 0;
+    padding: 3px;
+    overflow-y: auto;
+}
+
+.selecteduser {
+    float:left; 
+    margin: 3px; 
+    padding: 0 0 0 2px; 
+    border: 1px solid #99CCFF; 
+    background-color: #CBDBFB;
+    font-size: 0.7em;
+}
+
+.selecteduser span {
+    padding: 0 2px 0 2px;
+    margin: 0 0 0 2px;
+    background-color: white;
+    border-left: 1px solid #99CCFF;
+} 
+
+.selecteduser span:hover{
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.projecteditdetails {
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    display: block;
+    float: right;
+    border: 1px solid #99CCFF;
+}
+
+.projecteditdetails div {
+    height: auto;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    display: block;
+}
+
+.projecteditdetails div label {
+    float: left;
+    vertical-align:middle;
+}
+
+.projecteditdetails div input {
+    float: right;
+    width: 50%;
+    padding-left: 5px;
+}
+
+.projecteditdetails div textarea {
+    float: right;
+    width: 50%;
+    padding-left: 5px;
+    overflow: auto;
+}
+
+.projecteditdoperations {
+    width: auto;
+    height: auto;
+    display: block;
+    float: right;
+    margin-top: 10px;
+    font-family: Montserrat,Arial;
+}
