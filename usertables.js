@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // set selected elements div height and show it.
             var elementsContentsDiv = document.getElementById("elements-contents");
             var selectedElementsDiv = document.getElementById("selected-elements");
-            selectedElementsDiv.style.height = ((elementsContentsDiv.clientHeight + 50) + "px");
+            selectedElementsDiv.style.height = ((elementsContentsDiv.clientHeight + 47) + "px");
             ShowSelectedElements(false);   
         }
 	}
