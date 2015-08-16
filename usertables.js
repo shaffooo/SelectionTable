@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	        });
             ChangeElementSelection(actualProjectUsers);
         } else {
+            
+            var elementsContentsDiv = document.getElementById("elements-contents");
+            var selectedElementsDiv = document.getElementById("selected-elements");
+            selectedElementsDiv.style.height = ((elementsContentsDiv.clientHeight + 50) + "px");
             ShowSelectedElements(false);   
         }
 	}
