@@ -47,13 +47,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	    ChangeElementSelection(editedProjectUsers);
 	}
 
+    GetFilteredElements = function(){
+
+        var elementsTable = document.getElementById("elements");
+        var inputs = elementsTable.getElementsByTagName("input");
+        
+        var filteredElements = [];
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "checkbox") {
+                filteredElements.push({id:inputs[i].id, name: inputs[i].value});
+            }
+        }
+        
+        return filteredElements;
+    }
+    
     SelectAll = function (evt) {
 
         ChangeElementSelection(editedProjectUsers);
         editedProjectUsers.length = 0;
 	    if (evt.checked) {
             
-            ChangeElementSelection(allUsers);
+            var filteredElements = GetFilteredElements();
+            ChangeElementSelection(filteredElements);
 	    }   
 	}
 

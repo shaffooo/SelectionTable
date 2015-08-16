@@ -1,13 +1,13 @@
-.sel-box-h {
-    height: 450px;
-}
 .ch {
-    height: 400px;
+    height: 223px;
 }
 .cw {
     width: 200px;
 }
 
+.sel-ch {
+    height: 200px;
+}
 /* primary div */
 .selection-table {
 
@@ -97,6 +97,7 @@ input:focus {
 
 /* 2. Selected Elements*/
 .selected-elements{
+    height: auto;
     
     float: left;
     overflow-y: scroll;
@@ -117,8 +118,6 @@ input:focus {
 }
 .selected-elements-contents {
     width: 100%;
-    height: auto;
-    max-height: 265px;
     
     padding: 3px;
     overflow: auto;
