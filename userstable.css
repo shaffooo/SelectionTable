@@ -1,12 +1,12 @@
 .ch {
-    height: 223px;
+    height: 200px;
 }
 .cw {
     width: 200px;
 }
 
 .sel-ch {
-    height: 200px;
+    height: 250px;
 }
 /* primary div */
 .selection-table {
@@ -97,7 +97,6 @@ input:focus {
 
 /* 2. Selected Elements*/
 .selected-elements{
-    height: auto;
     
     float: left;
     overflow-y: scroll;
@@ -119,7 +118,7 @@ input:focus {
 .selected-elements-contents {
     width: 100%;
     
-    padding: 3px;
+    padding: 4px 3px 4px 3px;
     overflow: auto;
 }
 .selected-element {
