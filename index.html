@@ -6,26 +6,33 @@
     </head>
     <body>
         
-        <div class="users-container">
-            <div class="users-list-container">
-                <input id="hh" type="text" class="users-filter" placeholder="Search by name" onkeyup="FilterUsers(this)">
-                <div class="users-header">
-                    <table>
+        <div class="selection-table">
+            
+            <div class="elements-section cw">
+                
+                <input type="text" class="elements-filter" placeholder="Search by name" onkeyup="FilterElements(this)">
+                
+                <div>
+                    <table class="elements-header">
                         <tr>
                             <td>
-                                <input type="checkbox" id="all" value="change-all-users" onclick="SelectAll(this)">
+                                <input type="checkbox" id="all" onclick="SelectAll(this)">
                             </td>
                             <td>User Name</td>
                         </tr>
                     </table>
                 </div>
-                <div id="edit-users" class="users-list">
-
+                
+                <div class="elements-contents ch">
+                    <table id="elements" class="elements">
+                        
+                    </table>
                 </div>
             </div>
-            <div id="selected-users-list-container">
-                <div class="selectedusersheader"><span>Selected Users</span></div>
-                <div id="editedusersforproject" class="selectedusers">
+            
+            <div id="selected-elements" class="selected-elements cw sel-box-h">
+                <div class="selected-elements-header"><span>Selected Users</span></div>
+                <div id="editedusers" class="selected-elements-contents">
 
                 </div>
             </div>
