@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	        });
             ChangeElementSelection(actualProjectUsers);
         } else {
-            
+            // set selected elements div height and show it.
             var elementsContentsDiv = document.getElementById("elements-contents");
             var selectedElementsDiv = document.getElementById("selected-elements");
             selectedElementsDiv.style.height = ((elementsContentsDiv.clientHeight + 50) + "px");
