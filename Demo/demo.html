@@ -2,40 +2,40 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="selectionTable.css" type="text/css">
-    <script src="selectionTable.js"></script>
+    <link rel="stylesheet" href="SelectionTable.css" type="text/css">
+    <script src="SelectionTable.js"></script>
 </head>
 
 <body>
 
-    <div class="selection-table">
+    <div id="selection-table">
 
-        <div class="elements-section cw">
+        <div id="entities-section" class="cw">
 
-            <input type="text" class="elements-filter" placeholder="Search" onkeyup="FilterElements(this)">
+            <input type="text" id="entities-filter" placeholder="Search" onkeyup="FilterEntities(this)">
 
             <div>
-                <table class="elements-header">
+                <table id="entities-header">
                     <tr>
                         <td>
-                            <input type="checkbox" id="all" onclick="SelectAll(this)">
+                            <input type="checkbox" id="all" onclick="ChangeAll(this)">
                         </td>
                         <td>User Name</td>
                     </tr>
                 </table>
             </div>
 
-            <div id="elements-contents" class="elements-contents ch">
-                <table id="elements" class="elements">
+            <div id="entities-contents" class="ch">
+                <table id="entities">
 
                 </table>
             </div>
         </div>
 
-        <div id="selected-elements" class="selected-elements cw">
-            <div id="selected-elements-header">Selected Users</div>
-            <div id="cleardiv"></div>
-            <div id="editedusers" class="selected-elements-contents">
+        <div id="selected-entities" class="cw">
+            <div id="selected-entities-header">Selected Users</div>
+
+            <div id="selected-entities-contents">
 
             </div>
         </div>
