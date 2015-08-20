@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 editedEntities.push(cur_entity);
                 var editeEntitiesHTML = document.getElementById('selected-entities-contents').innerHTML;
-                editeEntitiesHTML += "<div id='" + cur_entity.id + "selected' class=\"selected-entity\">" + cur_entity.name + "<span onclick=\"RemoveSelectedEntity(this)\">&#10005</span></div>";
+                editeEntitiesHTML += "<div id='" + cur_entity.id + "selected' class=\"selected-entity\"><span>" + cur_entity.name + "</span><span onclick=\"RemoveSelectedEntity(this)\">&#10005</span></div>";
                 document.getElementById('selected-entities-contents').innerHTML = editeEntitiesHTML;
             }
         } else {
