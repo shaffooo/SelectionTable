@@ -1,0 +1,10 @@
+/*
+---
+name: SelectionTable
+description: Select elements and show selected ones in a new div
+authors:
+  - Shafiq Ur Rahman
+resources:
+normalize_css: no
+...
+*/
