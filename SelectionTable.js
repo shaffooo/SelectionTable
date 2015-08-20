@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
+    var tabelSettings = {
+        mode: 'vertical', //'horizontal'
+        entityName: 'User',
+        referenceProperty: 'id',
+        displayProperty: 'name'
+    };
+
     var allEntities = [{
         id: '1',
         name: 'Monica Anderson'
@@ -82,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var editedEntities = [];
 
-    function SetProjectEditEntities(entities, selectedEntityIds) {
+    function SetProjectEditEntities(entities, selectedEntityIds, settings) {
 
         PopulateProjectEditEntities(entities);
 
@@ -99,7 +106,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // set selected entities div height and show it.
         var entitiesContentsDiv = document.getElementById("entities-contents");
         var selectedEntitiesDiv = document.getElementById("selected-entities");
-        selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
+        if (settings.mode === 'horizontal') {
+            selectedEntitiesDiv.style.width = ((entitiesContentsDiv.clientWidth / 2) + "px");
+            selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
+        } else {
+            selectedEntitiesDiv.style.width = (entitiesContentsDiv.clientWidth + "px");
+            selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight / 2) + "px");
+            document.getElementById("selection-table").style.width = (entitiesContentsDiv.clientWidth + 5) + "px";
+        }
     }
 
     function PopulateProjectEditEntities(entities) {
@@ -270,5 +284,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
         registry.byId('dialogProjectEdit').hide();
     }
 
-    SetProjectEditEntities(allEntities, ['1', '2']);
+    SetProjectEditEntities(allEntities, ['1', '2'], tabelSettings);
 });
