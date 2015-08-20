@@ -85,26 +85,41 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function SetProjectEditEntities(entities, selectedEntityIds) {
 
         PopulateProjectEditEntities(entities);
+
+        // if selected entities exist mark corresponding checkboxex
         if (selectedEntityIds.length) {
             var actualProjectEntities = entities.filter(function (entity) {
                 return (selectedEntityIds.indexOf(entity.id) > -1);
             });
             ChangeEntitySelection(actualProjectEntities);
         } else {
-            // set selected entities div height and show it.
-            var entitiesContentsDiv = document.getElementById("entities-contents");
-            var selectedEntitiesDiv = document.getElementById("selected-entities");
-            selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
             ShowSelectedEntities(false);
         }
+
+        // set selected entities div height and show it.
+        var entitiesContentsDiv = document.getElementById("entities-contents");
+        var selectedEntitiesDiv = document.getElementById("selected-entities");
+        selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
     }
 
     function PopulateProjectEditEntities(entities) {
 
-        var entitiesTableHTML = "";
+        // clone entities to sort them without effecting incoming array
+        var entitiesClone = entities.slice();
+        entitiesClone = entitiesClone.sort(function (a, b) {
+            if (a.name < b.name) {
+                return -1;
+            }
 
-        //console.log(entities.length);
-        entities.forEach(function (entity) {
+            if (a.name > b.name) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        var entitiesTableHTML = "";
+        entitiesClone.forEach(function (entity) {
 
             entitiesTableHTML += "<tr>";
 
@@ -255,5 +270,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
         registry.byId('dialogProjectEdit').hide();
     }
 
-    SetProjectEditEntities(allEntities, []);
+    SetProjectEditEntities(allEntities, ['1', '2']);
 });
