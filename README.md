@@ -4,5 +4,5 @@ This is an attempt to create a pure HTML/CSS/Javascript table that has row selec
 Here is how it works.
 
 <a href="http://jsfiddle.net/gh/get/library/pure/shaffooo/SelectionTable/tree/master/Demo" target="_blank">
-  <img src="http://ec.l.thumbs.canstockphoto.com/canstock20417100.jpg" alt="demo">
+  <img src="http://ec.l.thumbs.canstockphoto.com/canstock20417100.jpg" alt="demo" width="100px" height="100px">
 </a>
