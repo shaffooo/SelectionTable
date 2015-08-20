@@ -5,7 +5,7 @@
    - Shafiq Ur Rahman
  resources:
    - https://github.com/shaffooo/SelectionTable/blob/master/SelectionTable.html
-   - https://github.com/shaffooo/SelectionTable/blob/master/selectionTable.css
-   - https://github.com/shaffooo/SelectionTable/blob/master/selectionTable.js
+   - https://github.com/shaffooo/SelectionTable/blob/master/SelectionTable.css
+   - https://github.com/shaffooo/SelectionTable/blob/master/SelectionTable.js
  normalize_css: no
  ...
