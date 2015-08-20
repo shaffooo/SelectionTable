@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="userstable.css" type="text/css">
-        <script src="usertables.js"></script>
-    </head>
-    <body>
-        
-        <div class="selection-table">
-            
-            <div class="elements-section cw">
-                
-                <input type="text" class="elements-filter" placeholder="Search by name" onkeyup="FilterElements(this)">
-                
-                <div>
-                    <table class="elements-header">
-                        <tr>
-                            <td>
-                                <input type="checkbox" id="all" onclick="SelectAll(this)">
-                            </td>
-                            <td>User Name</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div id="elements-contents" class="elements-contents ch">
-                    <table id="elements" class="elements">
-                        
-                    </table>
-                </div>
-            </div>
-            
-            <div id="selected-elements" class="selected-elements cw">
-                <div class="selected-elements-header"><span>Selected Users</span></div>
-                <div id="editedusers" class="selected-elements-contents">
 
-                </div>
+<head>
+    <link rel="stylesheet" href="userstable.css" type="text/css">
+    <script src="usertables.js"></script>
+</head>
+
+<body>
+
+    <div class="selection-table">
+
+        <div class="elements-section cw">
+
+            <input type="text" class="elements-filter" placeholder="Search" onkeyup="FilterElements(this)">
+
+            <div>
+                <table class="elements-header">
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="all" onclick="SelectAll(this)">
+                        </td>
+                        <td>User Name</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="elements-contents" class="elements-contents ch">
+                <table id="elements" class="elements">
+
+                </table>
             </div>
         </div>
-        
-    </body>
+
+        <div id="selected-elements" class="selected-elements cw">
+
+            <div id="editedusers" class="selected-elements-contents">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>
