@@ -1,9 +1,9 @@
 .ch {
-    height: 200px;
+    height: 250px;
 }
 
 .cw {
-    width: 200px;
+    width: 300px;
 }
 
 
@@ -59,7 +59,6 @@ input:focus {
 #entities-header td {
     padding: 3px;
     background-color: #99CCFF;
-    color: white;
 }
 
 #entities-header td:nth-child(1) {
@@ -125,7 +124,6 @@ input:focus {
     float: left;
     background-color: #99CCFF;
     position: absolute;
-    color: white;
 }
 
 #selected-entities-contents {
@@ -137,22 +135,30 @@ input:focus {
 }
 
 .selected-entity {
+    width: auto;
+    height: auto;
     margin: 3px;
-    padding: 0 0 0 2px;
     float: left;
-    border: 1px solid #99CCFF;
-    background-color: #CBDBFB;
-    font-size: 0.7em;
+    font-size: 0.9em;
 }
 
 .selected-entity span {
+    /*margin: 1px 0 1px 0;*/
     padding: 0 2px 0 2px;
-    margin: 0 0 0 2px;
-    background-color: white;
-    border-left: 1px solid #99CCFF;
+    border: 1px solid #89b7e5;
+    background-color: #CBDBFB;
 }
 
-.selected-entity span:hover {
+.selected-entity span + span {
+    padding: 0 2px 0 2px;
+    /*    margin: 0 0 0 2px;*/
+    background-color: white;
+    border-style: solid;
+    border-color: #89b7e5;
+    border-width: 1px 1px 1px 0;
+}
+
+.selected-entity span + span:hover {
     color: white;
     background-color: black;
     cursor: pointer;

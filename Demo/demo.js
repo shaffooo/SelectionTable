@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
+    var tabelSettings = {
+        mode: 'vertical', //'horizontal', //
+        entityName: 'User',
+        referenceProperty: 'id',
+        displayProperty: 'name'
+    };
+
     var allEntities = [{
         id: '1',
         name: 'Monica Anderson'
@@ -82,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var editedEntities = [];
 
-    function SetProjectEditEntities(entities, selectedEntityIds) {
+    function SetProjectEditEntities(entities, selectedEntityIds, settings) {
 
         PopulateProjectEditEntities(entities);
 
@@ -99,7 +106,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // set selected entities div height and show it.
         var entitiesContentsDiv = document.getElementById("entities-contents");
         var selectedEntitiesDiv = document.getElementById("selected-entities");
-        selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
+        if (settings.mode === 'horizontal') {
+            selectedEntitiesDiv.style.width = (2 * (entitiesContentsDiv.clientWidth / 3) + "px");
+            selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
+        } else {
+            selectedEntitiesDiv.style.width = (entitiesContentsDiv.clientWidth + "px");
+            selectedEntitiesDiv.style.height = (2 * (entitiesContentsDiv.clientHeight / 3) + "px");
+            document.getElementById("selection-table").style.width = (entitiesContentsDiv.clientWidth + 5) + "px";
+        }
     }
 
     function PopulateProjectEditEntities(entities) {
@@ -221,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 editedEntities.push(cur_entity);
                 var editeEntitiesHTML = document.getElementById('selected-entities-contents').innerHTML;
-                editeEntitiesHTML += "<div id='" + cur_entity.id + "selected' class=\"selected-entity\">" + cur_entity.name + "<span onclick=\"RemoveSelectedEntity(this)\">&#10005</span></div>";
+                editeEntitiesHTML += "<div id='" + cur_entity.id + "selected' class=\"selected-entity\"><span>" + cur_entity.name + "</span><span onclick=\"RemoveSelectedEntity(this)\">&#10005</span></div>";
                 document.getElementById('selected-entities-contents').innerHTML = editeEntitiesHTML;
             }
         } else {
@@ -270,5 +284,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
         registry.byId('dialogProjectEdit').hide();
     }
 
-    SetProjectEditEntities(allEntities, ['1', '2']);
+    SetProjectEditEntities(allEntities, ['1', '2'], tabelSettings);
 });
