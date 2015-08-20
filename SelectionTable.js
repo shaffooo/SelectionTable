@@ -9,10 +9,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var allEntities = [{
         id: '1',
-        name: 'Monica Anderson'
+        name: 'Monica Hangler',
+        employee: 'yes',
+        manager: 'no'
     }, {
         id: '2',
-        name: 'Steven Blankenship'
+        name: 'Steven Blankenship',
+        employee: 'yes',
+        manager: 'yes'
     }, {
         id: '3',
         name: 'Joshua Jones'
@@ -233,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             if (index === -1) {
 
-                editedEntities.push(cur_entity);
+                editedEntities.push(FindEntity(cur_entity.id));
                 var editeEntitiesHTML = document.getElementById('selected-entities-contents').innerHTML;
                 editeEntitiesHTML += "<div id='" + cur_entity.id + "selected' class=\"selected-entity\"><span>" + cur_entity.name + "</span><span onclick=\"RemoveSelectedEntity(this)\">&#10005</span></div>";
                 document.getElementById('selected-entities-contents').innerHTML = editeEntitiesHTML;
@@ -263,6 +267,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
         } else {
             document.getElementById('selected-entities').style.display = "block";
         }
+    }
+
+    function FindEntity(id) {
+
+        var foundEntities = allEntities.filter(function (entity) {
+            return entity.id == id;
+        });
+
+        return (foundEntities.length) ? foundEntities[0] : null;
     }
 
 
