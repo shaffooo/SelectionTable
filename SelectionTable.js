@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
     var tabelSettings = {
-        mode: 'vertical', //'horizontal'
+        mode: 'vertical', //'horizontal', //
         entityName: 'User',
         referenceProperty: 'id',
         displayProperty: 'name'
@@ -107,11 +107,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var entitiesContentsDiv = document.getElementById("entities-contents");
         var selectedEntitiesDiv = document.getElementById("selected-entities");
         if (settings.mode === 'horizontal') {
-            selectedEntitiesDiv.style.width = ((entitiesContentsDiv.clientWidth / 2) + "px");
+            selectedEntitiesDiv.style.width = (2 * (entitiesContentsDiv.clientWidth / 3) + "px");
             selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
         } else {
             selectedEntitiesDiv.style.width = (entitiesContentsDiv.clientWidth + "px");
-            selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight / 2) + "px");
+            selectedEntitiesDiv.style.height = (2 * (entitiesContentsDiv.clientHeight / 3) + "px");
             document.getElementById("selection-table").style.width = (entitiesContentsDiv.clientWidth + 5) + "px";
         }
     }
