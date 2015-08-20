@@ -120,10 +120,20 @@ input:focus {
     border-bottom: 1px solid #99CCFF;
 }
 
+#selected-elements-header {
+    padding: 2px 5px 2px 5px;
+    float: left;
+    background-color: #99CCFF;
+    position: absolute;
+    color: white;
+}
+
 .selected-elements-contents {
+    clear: both;
     max-width: 100%;
     padding: 4px 3px 4px 3px;
     overflow: auto;
+    margin-top: 17px;
 }
 
 .selected-element {
