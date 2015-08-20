@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    var allUsers = [{
+    var allEntities = [{
         id: '1',
         name: 'Monica Anderson'
     }, {
@@ -80,159 +80,159 @@ document.addEventListener("DOMContentLoaded", function (event) {
         name: 'Adam Sorson'
     }];
 
-    var editedProjectUsers = [];
+    var editedEntities = [];
 
-    function SetProjectEditUsers(users, selectedUserIds) {
+    function SetProjectEditEntities(entities, selectedEntityIds) {
 
-        PopulateProjectEditUsers(users);
-        if (selectedUserIds.length) {
-            var actualProjectUsers = users.filter(function (user) {
-                return (selectedUserIds.indexOf(user.id) > -1);
+        PopulateProjectEditEntities(entities);
+        if (selectedEntityIds.length) {
+            var actualProjectEntities = entities.filter(function (entity) {
+                return (selectedEntityIds.indexOf(entity.id) > -1);
             });
-            ChangeElementSelection(actualProjectUsers);
+            ChangeEntitySelection(actualProjectEntities);
         } else {
-            // set selected elements div height and show it.
-            var elementsContentsDiv = document.getElementById("elements-contents");
-            var selectedElementsDiv = document.getElementById("selected-elements");
-            selectedElementsDiv.style.height = ((elementsContentsDiv.clientHeight + 47) + "px");
-            ShowSelectedElements(false);
+            // set selected entities div height and show it.
+            var entitiesContentsDiv = document.getElementById("entities-contents");
+            var selectedEntitiesDiv = document.getElementById("selected-entities");
+            selectedEntitiesDiv.style.height = ((entitiesContentsDiv.clientHeight + 47) + "px");
+            ShowSelectedEntities(false);
         }
     }
 
-    function PopulateProjectEditUsers(users) {
+    function PopulateProjectEditEntities(entities) {
 
-        var usersTableHTML = "";
+        var entitiesTableHTML = "";
 
-        //console.log(users.length);
-        users.forEach(function (user) {
+        //console.log(entities.length);
+        entities.forEach(function (entity) {
 
-            usersTableHTML += "<tr>";
+            entitiesTableHTML += "<tr>";
 
-            usersTableHTML += "<td style=\"border-right: 1px solid #99CCFF;\">";
-            usersTableHTML += "<input type=\"checkbox\" id=\"" + user.id + "\" value=\"" + user.name + "\" onclick=\"ChangeSelectedElements(this)\" >";
-            usersTableHTML += "</td>";
-            usersTableHTML += "<td>" + user.name + "</td>";
+            entitiesTableHTML += "<td style=\"border-right: 1px solid #99CCFF;\">";
+            entitiesTableHTML += "<input type=\"checkbox\" id=\"" + entity.id + "\" value=\"" + entity.name + "\" onclick=\"ChangeSelectedEntities(this)\" >";
+            entitiesTableHTML += "</td>";
+            entitiesTableHTML += "<td>" + entity.name + "</td>";
 
-            usersTableHTML += "</tr>";
+            entitiesTableHTML += "</tr>";
         });
-        document.getElementById("elements").innerHTML = usersTableHTML;
+        document.getElementById("entities").innerHTML = entitiesTableHTML;
     }
 
-    FilterElements = function (evt) {
+    FilterEntities = function (evt) {
 
         var filterStr = evt.value.toLowerCase();
-        var filteredUsers = allUsers.filter(function (user) {
-            return ((user.name.toLowerCase().indexOf(filterStr)) > -1);
+        var filteredEntities = allEntities.filter(function (entity) {
+            return ((entity.name.toLowerCase().indexOf(filterStr)) > -1);
         });
 
-        PopulateProjectEditUsers(filteredUsers);
-        ChangeElementSelection(editedProjectUsers);
+        PopulateProjectEditEntities(filteredEntities);
+        ChangeEntitySelection(editedEntities);
     }
 
-    GetFilteredElements = function () {
+    GetFilteredEntities = function () {
 
-        var elementsTable = document.getElementById("elements");
-        var inputs = elementsTable.getElementsByTagName("input");
+        var entitiesTable = document.getElementById("entities");
+        var inputs = entitiesTable.getElementsByTagName("input");
 
-        var filteredElements = [];
+        var filteredEntities = [];
         for (var i = 0; i < inputs.length; i++) {
             if (inputs[i].type == "checkbox") {
-                filteredElements.push({
+                filteredEntities.push({
                     id: inputs[i].id,
                     name: inputs[i].value
                 });
             }
         }
 
-        return filteredElements;
+        return filteredEntities;
     }
 
-    SelectAll = function (evt) {
+    ChangeAll = function (evt) {
 
-        ChangeElementSelection(editedProjectUsers);
-        editedProjectUsers.length = 0;
+        ChangeEntitySelection(editedEntities);
+        editedEntities.length = 0;
         if (evt.checked) {
 
-            var filteredElements = GetFilteredElements();
-            ChangeElementSelection(filteredElements);
+            var filteredEntities = GetFilteredEntities();
+            ChangeEntitySelection(filteredEntities);
         }
     }
 
-    function ChangeElementSelection(users) {
+    function ChangeEntitySelection(entities) {
 
-        var clonedUsers = users.slice();
-        clonedUsers.forEach(function (user) {
-            var cbUser = document.getElementById(user.id);
-            if (cbUser) {
-                cbUser.click();
+        var clonedEntities = entities.slice();
+        clonedEntities.forEach(function (entity) {
+            var cbEntity = document.getElementById(entity.id);
+            if (cbEntity) {
+                cbEntity.click();
             }
         });
     }
 
-    RemoveSelectedUser = function (evt) {
+    RemoveSelectedEntity = function (evt) {
 
-        var seletedUserDiv = evt.parentNode;
-        if (seletedUserDiv) {
-            var selectedUsersDiv = seletedUserDiv.parentNode;
-            if (selectedUsersDiv) {
-                selectedUsersDiv.removeChild(seletedUserDiv);
+        var seletedEntityDiv = evt.parentNode;
+        if (seletedEntityDiv) {
+            var selectedEntitiesDiv = seletedEntityDiv.parentNode;
+            if (selectedEntitiesDiv) {
+                selectedEntitiesDiv.removeChild(seletedEntityDiv);
             }
 
-            var selectedUserDivId = seletedUserDiv.id;
-            var selectedUserDivName = seletedUserDiv.innerHTML;
-            var cur_user = {
-                id: selectedUserDivId.replace('selected', ''),
-                name: selectedUserDivName.substr(0, selectedUserDivName.indexOf('<span'))
+            var selectedEntityDivId = seletedEntityDiv.id;
+            var selectedEntityDivName = seletedEntityDiv.innerHTML;
+            var cur_entity = {
+                id: selectedEntityDivId.replace('selected', ''),
+                name: selectedEntityDivName.substr(0, selectedEntityDivName.indexOf('<span'))
             };
-            ChangeElementSelection([cur_user]);
+            ChangeEntitySelection([cur_entity]);
         }
 
-        var show = ((editedProjectUsers) && (editedProjectUsers.length > 0)) ? true : false;
-        ShowSelectedElements(show);
+        var show = ((editedEntities) && (editedEntities.length > 0)) ? true : false;
+        ShowSelectedEntities(show);
     }
 
-    ChangeSelectedElements = function (evt) {
+    ChangeSelectedEntities = function (evt) {
 
-        var cur_user = {
+        var cur_entity = {
             id: evt.id,
             name: evt.value
         };
-        var index = editedProjectUsers.map(function (e) {
+        var index = editedEntities.map(function (e) {
             return e.id;
-        }).indexOf(cur_user.id);
+        }).indexOf(cur_entity.id);
         if (evt.checked) {
 
             if (index === -1) {
 
-                editedProjectUsers.push(cur_user);
-                var editeUsersHTML = document.getElementById('selected-elements-contents').innerHTML;
-                editeUsersHTML += "<div id='" + cur_user.id + "selected' class=\"selected-element\">" + cur_user.name + "<span onclick=\"RemoveSelectedUser(this)\">&#10005</span></div>";
-                document.getElementById('selected-elements-contents').innerHTML = editeUsersHTML;
+                editedEntities.push(cur_entity);
+                var editeEntitiesHTML = document.getElementById('selected-entities-contents').innerHTML;
+                editeEntitiesHTML += "<div id='" + cur_entity.id + "selected' class=\"selected-entity\">" + cur_entity.name + "<span onclick=\"RemoveSelectedEntity(this)\">&#10005</span></div>";
+                document.getElementById('selected-entities-contents').innerHTML = editeEntitiesHTML;
             }
         } else {
 
             if (index > -1) {
 
-                editedProjectUsers.splice(index, 1);
-                // remove div for user by id and updates innerHTML of divinitselectedusers.
-                var elem = document.getElementById(cur_user.id + 'selected');
+                editedEntities.splice(index, 1);
+
+                // remove div for entity by id and updates innerHTML of divinitselectedentities.
+                var elem = document.getElementById(cur_entity.id + 'selected');
                 if (elem && elem.parentNode) {
                     elem.parentNode.removeChild(elem);
-                    // = document.getElementById('divinitselectedusers').innerHTML;
                 }
             }
         }
 
-        var show = ((editedProjectUsers) && (editedProjectUsers.length > 0)) ? true : false;
-        ShowSelectedElements(show);
+        var show = ((editedEntities) && (editedEntities.length > 0)) ? true : false;
+        ShowSelectedEntities(show);
     }
 
-    function ShowSelectedElements(show) {
+    function ShowSelectedEntities(show) {
 
         if (!show) {
-            document.getElementById('selected-elements').style.display = "none";
+            document.getElementById('selected-entities').style.display = "none";
         } else {
-            document.getElementById('selected-elements').style.display = "block";
+            document.getElementById('selected-entities').style.display = "block";
         }
     }
 
@@ -243,17 +243,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-        document.getElementById('selected-elements').innerHTML = '';
-        editedProjectUsers = [];
+        document.getElementById('selected-entities').innerHTML = '';
+        editedEntities = [];
         registry.byId('dialogProjectEdit').hide();
     }
 
     CancelProjectUpdates = function (evt) {
 
-        document.getElementById('selected-elements').innerHTML = '';
-        editedProjectUsers = [];
+        document.getElementById('selected-entities').innerHTML = '';
+        editedEntities = [];
         registry.byId('dialogProjectEdit').hide();
     }
 
-    SetProjectEditUsers(allUsers, []); //['1']);
+    SetProjectEditEntities(allEntities, []);
 });
