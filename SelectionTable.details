@@ -1,0 +1,11 @@
+---
+ name: Selection Table
+ description: Select elements from a fixed header table and display them with a closeable control.
+ authors:
+   - Shafiq Ur Rahman
+ resources:
+   - https://github.com/shaffooo/SelectionTable/blob/master/SelectionTable.html
+   - https://github.com/shaffooo/SelectionTable/blob/master/selectionTable.css
+   - https://github.com/shaffooo/SelectionTable/blob/master/selectionTable.js
+ normalize_css: no
+ ...
