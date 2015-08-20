@@ -141,7 +141,7 @@ input:focus {
     float: left;
     border: 1px solid #99CCFF;
     background-color: #CBDBFB;
-    font-size: 0.7em;
+    font-size: 0.9em;
 }
 
 .selected-element span {
