@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="SelectionTable.css" type="text/css">
+    <script src="SelectionTable.js"></script>
+</head>
+
+<body>
+
+    <div id="selection-table">
+
+        <div id="elements-section" class="cw">
+
+            <input type="text" id="elements-filter" placeholder="Search" onkeyup="FilterElements(this)">
+
+            <div>
+                <table id="elements-header">
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="all" onclick="SelectAll(this)">
+                        </td>
+                        <td>User Name</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="elements-contents" class="ch">
+                <table id="elements">
+
+                </table>
+            </div>
+        </div>
+
+        <div id="selected-elements" class="cw">
+            <div id="selected-elements-header">Selected Users</div>
+
+            <div id="selected-elements-contents">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
